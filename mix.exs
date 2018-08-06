@@ -51,6 +51,7 @@ defmodule GraphqlUsersApi.Mixfile do
       {:absinthe_ecto, "~> 0.1.3"},
       {:timex, "~> 3.3.0"},
       {:timex_ecto, "~> 3.3.0"},
+      {:hackney, "~> 1.13.0"}
     ]
   end
 
