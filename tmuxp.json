@@ -1,0 +1,27 @@
+{
+  "session_name": "Fun!",
+  "start_directory": "/Users/danielblanco/Development/Projects/graphql_users_api",
+  "windows": [
+    {
+      "panes": [
+        {
+          "shell_command": ["mix phx.server"]
+        },
+        {
+          "shell_command": []
+        }
+      ],
+      "layout": "tiled",
+      "window_name": "Cmds"
+    },
+    {
+      "panes": [
+        {
+          "shell_command": ["vim ."],
+          "focus": true
+        }
+      ],
+      "window_name": "Code"
+    }
+  ]
+}

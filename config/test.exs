@@ -9,11 +9,5 @@ config :graphql_users_api, GraphqlUsersApiWeb.Endpoint,
 # Print only warnings and errors during test
 config :logger, level: :warn
 
-# Configure your database
-config :graphql_users_api, GraphqlUsersApi.Repo,
-  adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
-  database: "graphql_users_api_test",
-  hostname: "localhost",
-  pool: Ecto.Adapters.SQL.Sandbox
+
+import_config "test.secret.exs"
