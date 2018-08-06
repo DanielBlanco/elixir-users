@@ -48,11 +48,5 @@ config :logger, :console, format: "[$level] $message\n"
 # in production as building large stacktraces may be expensive.
 config :phoenix, :stacktrace_depth, 20
 
-# Configure your database
-config :graphql_users_api, GraphqlUsersApi.Repo,
-  adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
-  database: "graphql_users_api_dev",
-  hostname: "localhost",
-  pool_size: 10
+
+import_config "dev.secret.exs"
