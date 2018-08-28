@@ -15,14 +15,19 @@ defmodule GraphqlUsersApiWeb.GraphQL.Schema do
   end
 
   @doc """
-  This will be applied to ALL fields.
+  Middlewares.
   """
-  def middleware(middleware, _field, %AbsTypes.Object{identifier: identifier})
-      when identifier in [:query, :subscription, :mutation] do
-    [Middleware.BinaryId | middleware]
+  def middleware(middleware, _field, %AbsTypes.Object{identifier: :mutation}) do
+    middleware ++ [Middleware.BinaryId, Middleware.ChangesetErrors]
   end
 
-  def middleware(middleware, _field, _object) do
-    middleware
+  def middleware(middleware, _field, %AbsTypes.Object{identifier: :query}) do
+    middleware ++ [Middleware.BinaryId]
   end
+
+  def middleware(middleware, _field, %AbsTypes.Object{identifier: :subscription}) do
+    middleware ++ [Middleware.BinaryId]
+  end
+
+  def middleware(middleware, _field, _object), do: middleware
 end
