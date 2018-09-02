@@ -18,7 +18,12 @@ defmodule GraphqlUsersApi.AccountsTest do
       last_name: "some updated last_name",
       username: "updated_username"
     }
-    @invalid_attrs %{active: nil, first_name: nil, last_name: nil, username: nil}
+    @invalid_attrs %{
+      active: nil,
+      first_name: nil,
+      last_name: nil,
+      username: nil
+    }
 
     def user_fixture(attrs \\ %{}) do
       {:ok, user} =
@@ -47,8 +52,26 @@ defmodule GraphqlUsersApi.AccountsTest do
       assert user.username == "username"
     end
 
-    test "create_user/1 with invalid data returns error changeset" do
-      assert {:error, %Ecto.Changeset{}} = Accounts.create_user(@invalid_attrs)
+    test "create_user/1 with invalid username" do
+      test_attrs = Map.put(@valid_attrs, :username, nil)
+      assert {:error, %Ecto.Changeset{}} = Accounts.create_user(test_attrs)
+    end
+
+    test "create_user/1 with blank username" do
+      test_attrs = Map.put(@valid_attrs, :username, "")
+      assert {:error, %Ecto.Changeset{}} = Accounts.create_user(test_attrs)
+    end
+
+    test "create_user/1 with username longer than 50 chars" do
+      test_attrs = Map.put(@valid_attrs, :username, String.duplicate("a", 51))
+      assert {:error, %Ecto.Changeset{}} = Accounts.create_user(test_attrs)
+    end
+
+    test "create_user/1 with duplicate username" do
+      user = user_fixture()
+      test_attrs = Map.put(@valid_attrs, :username, user.username)
+      assert {:error, chset} = Accounts.create_user(test_attrs)
+      assert %{username: ["has already been taken"]} = errors_on(chset)
     end
 
     test "update_user/2 with valid data updates the user" do
