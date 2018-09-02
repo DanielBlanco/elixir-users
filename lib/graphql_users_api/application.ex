@@ -1,4 +1,7 @@
 defmodule GraphqlUsersApi.Application do
+  @moduledoc """
+  Application start point.
+  """
   use Application
 
   # See https://hexdocs.pm/elixir/Application.html
@@ -11,7 +14,7 @@ defmodule GraphqlUsersApi.Application do
       # Start the Ecto repository
       supervisor(GraphqlUsersApi.Repo, []),
       # Start the endpoint when the application starts
-      supervisor(GraphqlUsersApiWeb.Endpoint, []),
+      supervisor(GraphqlUsersApiWeb.Endpoint, [])
       # Start your own worker by calling: GraphqlUsersApi.Worker.start_link(arg1, arg2, arg3)
       # worker(GraphqlUsersApi.Worker, [arg1, arg2, arg3]),
     ]

@@ -1,4 +1,7 @@
 defmodule GraphqlUsersApiWeb.GraphQL.Type.Account do
+  @moduledoc """
+  GraphQL Type: account
+  """
   use Absinthe.Schema.Notation
   use Absinthe.Ecto, repo: Impress.Repo
 
@@ -33,7 +36,6 @@ defmodule GraphqlUsersApiWeb.GraphQL.Type.Account do
     field :create_account, type: :account do
       arg(:input, :create_account_input)
 
-      IO.inspect("dude, wtf!")
       # middleware Middleware.Authentication
       resolve(&Resolver.Account.Create.run/2)
     end

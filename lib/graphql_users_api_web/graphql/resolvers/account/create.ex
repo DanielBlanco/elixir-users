@@ -5,7 +5,9 @@ defmodule GraphqlUsersApiWeb.GraphQL.Resolver.Account.Create do
   alias GraphqlUsersApi.Accounts
 
   def run(args, _) do
-    Accounts.create_user(args[:input]) |> response()
+    args[:input]
+    |> Accounts.create_user()
+    |> response()
   end
 
   # defp response({:error, chset}) do

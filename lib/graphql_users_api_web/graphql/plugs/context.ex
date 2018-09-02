@@ -1,5 +1,5 @@
 defmodule GraphqlUsersApiWeb.GraphQL.Plug.Context do
-  @doc """
+  @moduledoc """
   GraphQL context for Absinthe.
   """
   @behaviour Plug

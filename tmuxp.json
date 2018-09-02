@@ -8,7 +8,13 @@
           "shell_command": ["mix phx.server"]
         },
         {
-          "shell_command": []
+          "shell_command": ["mix test.watch"]
+        },
+        {
+          "shell_command": ["mix credo"]
+        },
+        {
+          "shell_command": ["git status"]
         }
       ],
       "layout": "tiled",

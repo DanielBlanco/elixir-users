@@ -1,4 +1,7 @@
 defmodule Ext.Ecto.Changeset do
+  @moduledoc """
+  Custom extension to Ecto.Changeset module.
+  """
   alias Ecto.Changeset
 
   @doc """
@@ -30,7 +33,8 @@ defmodule Ext.Ecto.Changeset do
     ], ...>
   """
   def flatten_assoc(changeset, field) do
-    flatten_assoc_changeset(changeset, changeset |> Changeset.get_change(field))
+    changeset
+    |> flatten_assoc_changeset(changeset |> Changeset.get_change(field))
     |> Changeset.delete_change(field)
   end
 

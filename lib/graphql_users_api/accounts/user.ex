@@ -1,4 +1,7 @@
 defmodule GraphqlUsersApi.Accounts.User do
+  @moduledoc """
+  User model.
+  """
   use GraphqlUsersApi.Schema
   import Ecto.Changeset
 

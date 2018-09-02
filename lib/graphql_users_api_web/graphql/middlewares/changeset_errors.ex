@@ -1,5 +1,5 @@
 defmodule GraphqlUsersApiWeb.GraphQL.Middleware.ChangesetErrors do
-  @doc """
+  @moduledoc """
   Handle Ecto.Changeset errors and makes sure we properly add error message to
   the errors in the response.
   """

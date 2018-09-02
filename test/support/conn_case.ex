@@ -26,7 +26,6 @@ defmodule GraphqlUsersApiWeb.ConnCase do
     end
   end
 
-
   setup tags do
     :ok = Ecto.Adapters.SQL.Sandbox.checkout(GraphqlUsersApi.Repo)
     unless tags[:async] do

@@ -1,5 +1,5 @@
 defmodule GraphqlUsersApiWeb.GraphQL.Middleware.BinaryId do
-  @doc """
+  @moduledoc """
   GraphQL binary id checker.
 
   If the arguments don't have an ID to check, just continue.

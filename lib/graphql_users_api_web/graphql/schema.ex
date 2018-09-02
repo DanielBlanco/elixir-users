@@ -1,8 +1,11 @@
 defmodule GraphqlUsersApiWeb.GraphQL.Schema do
+  @moduledoc """
+  Absinthe GraphQL Schema.
+  """
   use Absinthe.Schema
+  alias Absinthe.Type, as: AbsTypes
   alias GraphqlUsersApiWeb.GraphQL, as: GQL
   alias GQL.Middleware
-  alias Absinthe.Type, as: AbsTypes
 
   import_types(AbsTypes.Custom)
   import_types(GQL.Type.Account)

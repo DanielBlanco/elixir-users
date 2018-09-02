@@ -1,5 +1,10 @@
 defmodule GraphqlUsersApi.Factory do
+  @moduledoc """
+  Defines testing factories.
+  """
+
   use ExMachina.Ecto, repo: GraphqlUsersApi.Repo
+  alias Comeonin.Argon2
 
   # --- ACCOUNTS
 
@@ -35,7 +40,7 @@ defmodule GraphqlUsersApi.Factory do
   # end
 
   defp hash_password(password) do
-    Comeonin.Argon2.hashpwsalt(password)
+    Argon2.hashpwsalt(password)
   end
 
   defp uuid, do: UUID.uuid4()
