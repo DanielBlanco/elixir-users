@@ -20,3 +20,14 @@ Ready to run in production? Please [check our deployment guides](http://www.phoe
   * Docs: https://hexdocs.pm/phoenix
   * Mailing list: http://groups.google.com/group/phoenix-talk
   * Source: https://github.com/phoenixframework/phoenix
+
+
+## NOTES:
+I wanted to keep things simple and not add functionality that is specific to 
+some apps, therefore:
+
+- I didn't add Email or Phone fields to User model, this is something you can do.
+- The security of the application is done through username/password, any other
+  means of authentication should be created by you.
+- I'm using a full_name field in User model because from an UX standpoint, having
+  first_name and last_name does not add any extra value.

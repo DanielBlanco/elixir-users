@@ -8,7 +8,7 @@
           "shell_command": ["mix phx.server"]
         },
         {
-          "shell_command": ["mix test.watch"]
+          "shell_command": ["mix test"]
         },
         {
           "shell_command": ["mix credo"]
